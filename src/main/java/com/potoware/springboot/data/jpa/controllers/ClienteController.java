@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.potoware.springboot.data.jpa.models.dao.IClienteDao;
 import com.potoware.springboot.data.jpa.models.entity.Cliente;
@@ -32,5 +33,11 @@ public class ClienteController {
 	Cliente cliente = new Cliente();
 	model.put("cliente", cliente);
 		return "form";
+	}
+	
+	@RequestMapping(value="/form", method=RequestMethod.POST)
+	public String guardar(Cliente cliente) {
+		clienteDao.save(cliente);
+		return "redirect:listar";
 	}
 }
