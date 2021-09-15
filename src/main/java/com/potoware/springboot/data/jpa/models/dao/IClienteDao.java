@@ -7,4 +7,6 @@ import com.potoware.springboot.data.jpa.models.entity.Cliente;
 public interface IClienteDao {
 
 	public List<Cliente> findAll();
+	
+	public void save(Cliente cliente);
 }

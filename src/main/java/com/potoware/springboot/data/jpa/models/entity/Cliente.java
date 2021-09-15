@@ -25,10 +25,8 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Para generar el ID automatico
 	private Long id;
 
-	@Column(name = "name")
-	private String name;
-	@Column(name = "last_name")
-	private String lastName;
+	private String nombre;
+	private String apellido;
 	private String email;
 
 	@Column(name = "create_at")
@@ -43,20 +41,20 @@ public class Cliente implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
 	public String getEmail() {
