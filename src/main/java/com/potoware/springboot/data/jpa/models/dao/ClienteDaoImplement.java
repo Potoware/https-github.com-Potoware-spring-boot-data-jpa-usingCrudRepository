@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.potoware.springboot.data.jpa.models.entity.Cliente;
 
@@ -17,7 +16,6 @@ public class ClienteDaoImplement implements IClienteDao{
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
-	@Transactional(readOnly = true)
 	@Override
 	public List<Cliente> findAll() {
 		
@@ -25,7 +23,6 @@ public class ClienteDaoImplement implements IClienteDao{
 	}
 
 	@Override
-	@Transactional
 	public void save(Cliente cliente) {
 		if(cliente.getId()!=null && cliente.getId()>0) {
 			System.out.println("*****************Paso por aqui merge");
@@ -37,7 +34,6 @@ public class ClienteDaoImplement implements IClienteDao{
 		}
 	}
 
-	@Transactional(readOnly = true)
 	@Override
 	public Cliente findOne(Long id) {
 		
@@ -45,7 +41,6 @@ public class ClienteDaoImplement implements IClienteDao{
 	}
 
 	@Override
-	@Transactional
 	public void delete(Long id) {
 	
 		em.remove(findOne(id));
