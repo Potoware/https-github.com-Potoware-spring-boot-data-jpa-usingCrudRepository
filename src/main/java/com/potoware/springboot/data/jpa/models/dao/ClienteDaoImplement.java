@@ -37,10 +37,19 @@ public class ClienteDaoImplement implements IClienteDao{
 		}
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Cliente findOne(Long id) {
 		
 		return em.find(Cliente.class, id);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+	
+		em.remove(findOne(id));
+		
 	}
 
 }
